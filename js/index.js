@@ -5,7 +5,7 @@ $(document).ready(function()
   var x;
   x=$("#a");
   x.click(function(){
-  		alert(getElement("'"));
+  		alert('Esto pasa cuando te metes con chibolas.');
 	});
   y = $("#textid")
   y.on('change keyup paste' ,function(){
