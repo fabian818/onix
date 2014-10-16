@@ -8,11 +8,11 @@ $(document).ready(function()
   		alert(getElement("'"));
 	});
   y = $("#textid")
-  y.blur(function(){
+  y.on('change keyup paste' ,function(){
   		value = $(this).attr('value');
   		result = $("#result")
   		if (getElement(value)) {
-  			result.html('Elemento lexico' + getElement(value));
+  			result.html('Elemento lexico ' + getElement(value));
   		}
   		else{
   			if (getReservedWord(value)) {
