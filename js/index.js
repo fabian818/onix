@@ -9,16 +9,17 @@ $(document).ready(function()
 	});
   y = $("#textid")
   y.blur(function(){
-  		value = $("#textid").attr('value');
+  		value = $(this).attr('value');
+  		result = $("#result")
   		if (getElement(value)) {
-  			alert('Elemento lexico' + getElement(value));
+  			result.html('Elemento lexico' + getElement(value));
   		}
   		else{
   			if (getReservedWord(value)) {
-  				alert('Palabra reservada de tipo : ' + getType(getReservedWord(value)));
+  				result.html('Palabra reservada de tipo : ' + getType(getReservedWord(value)));
   			}
   			else{
-  				alert('indefinido');
+  				result.html('indefinido');
   			};
   		};
   		
