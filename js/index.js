@@ -4,9 +4,11 @@ $(document).ready(function()
 {
   var x;
   x=$("#a");
+
   x.click(function(){
   		alert('Esto pasa cuando te metes con chibolas.');
 	});
+
   y = $("#textid")
   y.on('change keyup paste' ,function(){
   		value = $(this).attr('value');
@@ -17,12 +19,10 @@ $(document).ready(function()
   		else{
   			if (getReservedWord(value)) {
   				result.html('Palabra reservada de tipo : ' + getType(getReservedWord(value)));
-  			}
-  			else{
-  				result.html('indefinido');
+  			}else{
+  				result.html('Ingrese componente');
   			};
-  		};
-  		
+  		};   		
 	});
 });
 
@@ -31,8 +31,31 @@ $(document).ready(function()
 function getReservedWord(key){
 	var array = {
 		'alias' : 'mo',
+		'break' : 'me',
+		//Operadores lógicos
 		'and' : 'ol',
-		'break' : 'me'
+		'or':'ol',
+		'not':'ol',
+		'&&' : 'ol',
+		'||':'ol',
+
+		
+		//Operadores Aritmeticos
+		'+':'oa',
+		'-':'oa',
+		'*':'oa',
+		'/':'oa',
+		'>':'oa',
+		'<':'oa',
+        //Operadores modificador 
+        'int':'mo',
+		'float':'mo',
+		'decimal':'mo',
+		'double':'mo',
+		'date':'mo',
+		'datetime':'mo'
+
+
 	};
 	return array[key];
 }
@@ -54,9 +77,21 @@ function getElement(key){
 	var array = {
 		'=' : 'igual',
 		'"' : 'comilla doble',
-		"'" : 'comilla simple'		
+		"'" : 'comilla simple',
+		'.' : 'punto',
+		',' : 'coma',
+		';' : 'punto y coma',
+		':' : 'dos punto',
+		'[' : 'abrir corchete',
+		']' : 'cerrar corchete',
+		'{' : 'abrir llave',
+		'}' : 'cerrar llave',
+		'(' : 'abrir parentesis',
+		')' : 'cerrar paretensis',
+		'-' : 'guion',
+		'_' : 'guion abajo'
+
 	};
 	return array[key];
 }
-
 
