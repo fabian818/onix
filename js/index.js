@@ -7,6 +7,7 @@ $(document).ready(function()
   		value = $(this).attr('value');
   		result = $("#result");
   		setListFromArray(getArrayFromText(value));
+      setListFromArrayName(getArrayFromText(value));
   		if (getReservedWord(value)) {
   			result.html('Palabra reservada de tipo : ' + getType(getReservedWord(value)));
   		}
