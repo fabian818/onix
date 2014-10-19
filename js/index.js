@@ -13,20 +13,33 @@ $(document).ready(function()
   y.on('change keyup paste' ,function(){
   		value = $(this).attr('value');
   		result = $("#result")
-  		if (getElement(value)) {
-  			result.html('Elemento lexico ' + getElement(value));
+  		if (getReservedWord(value)) {
+  			result.html('Palabra reservada de tipo : ' + getType(getReservedWord(value)));
   		}
   		else{
   			if (getReservedWord(value)) {
-  				result.html('Palabra reservada de tipo : ' + getType(getReservedWord(value)));
+  			result.html('Elemento lexico ' + getElement(value));
   			}else{
-  				result.html('Ingrese componente');
+  				if (isIdentificator(value)) {
+
+  				}else{
+  					if (value === '') {
+	  					result.html('Ingrese componente');
+	  				}
+	  				else{
+	  					result.html('indefinido');
+	  				};
+  				};  								
   			};
   		};   		
 	});
 });
 
 //obtener palabras reservadas
+
+function isIdentificator(value){
+	return false;
+}
 
 function getReservedWord(key){
 	var array = {
@@ -48,12 +61,12 @@ function getReservedWord(key){
 		'>':'oa',
 		'<':'oa',
         //Operadores modificador 
-        'int':'mo',
-		'float':'mo',
-		'decimal':'mo',
-		'double':'mo',
-		'date':'mo',
-		'datetime':'mo'
+        'int':'td',
+		'float':'td',
+		'decimal':'td',
+		'double':'td',
+		'date':'td',
+		'datetime':'td'
 
 
 	};
@@ -65,7 +78,8 @@ function getType(key){
 		'ol' : 'operador lógico',
 		'oa' : 'operador aritmético',
 		'mo' : 'modificador',
-		'me' : 'método'
+		'me' : 'método',
+		'td' : 'tipo de dato'
 	};
 	return array[key];
 }
