@@ -30,10 +30,9 @@ function setListFromArray (array) {
 	lexema.attr("size", listLength+1);
 	var options="<option value='0'>Lexema</option>";
 	for (var i = 1; i <= listLength; i++) {
-		options= options+ getOption(array[i-1],i);
+		options = options + getOption(array[i-1],i);
 	};
 	lexema.html(options);
-	/*comment */
 }
 
 function getOption (element, id) {
