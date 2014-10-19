@@ -14,7 +14,14 @@ function relationLists(list1,list2){
 }
 
 function getArrayFromText (string) {
-	return string.split(' ');
+	var array = string.split(' ');
+	var validateArray = new Array;
+	for (var i = 0; i < array.length; i++) {
+		if (array[i] != '') {
+			validateArray.push(array[i]);
+		};
+	};
+	return validateArray;
 }
 
 function setListFromArray (array) {

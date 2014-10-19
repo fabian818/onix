@@ -3,7 +3,7 @@
 $(document).ready(function()
 {
   relationLists("#nombre", "#lexema");
-  $("#textid").on('change keyup paste', function(){
+  $("#textid").keyup(function(){
   		value = $(this).attr('value');
   		result = $("#result");
   		setListFromArray(getArrayFromText(value));
@@ -28,4 +28,3 @@ $(document).ready(function()
   		};   		
 	});
 });
-
