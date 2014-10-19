@@ -27,7 +27,7 @@ function getArrayFromText (string) {
 function setListFromArray (array) {
 	var listLength = array.length
 	lexema = $("#lexema");
-	lexema.attr("size", listLength);
+	lexema.attr("size", listLength+1);
 	var options="<option value='0'>Lexema</option>";
 	for (var i = 1; i <= listLength; i++) {
 		options= options+ getOption(array[i-1],i);
