@@ -13,6 +13,22 @@ function relationLists(list1,list2){
 	);
 }
 
+function getArrayFromText (string) {
+	return string.split(' ');
+}
+
+function setListFromArray (array) {
+	var length = array.length
+	lexema = $("#lexema");
+	lexema.attr("size", length);
+	lexema.html();
+	/*comment */
+}
+
+function getOption (element, id) {
+	return "<option value='"+id+"'>"+element+"</option>"
+}
+
 //obtener palabras reservadas
 
 function isIdentificator(value){

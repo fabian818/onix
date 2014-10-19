@@ -5,7 +5,8 @@ $(document).ready(function()
   relationLists("#nombre", "#lexema");
   $("#textid").on('change keyup paste', function(){
   		value = $(this).attr('value');
-  		result = $("#result")
+  		result = $("#result");
+  		setListFromArray(getArrayFromText(value));
   		if (getReservedWord(value)) {
   			result.html('Palabra reservada de tipo : ' + getType(getReservedWord(value)));
   		}
