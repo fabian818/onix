@@ -34,6 +34,17 @@ function setListFromArray (array) {
 	};
 	lexema.html(options);
 }
+function setListFromArrayName (array) {
+	var listLength = array.length
+	nombre = $("#nombre");
+	nombre.attr("size", listLength+1);
+	var options="<option value='0'>Nombre</option>";
+	for (var i = 1; i <= listLength; i++) {
+		options= options+ getOption(array[i-1],i);
+	};
+	nombre.html(options);
+	/*comment */
+}
 
 function getOption (element, id) {
 	return "<option value='"+id+"'>"+element+"</option>"
