@@ -21,7 +21,11 @@ function setListFromArray (array) {
 	var length = array.length
 	lexema = $("#lexema");
 	lexema.attr("size", length);
-	lexema.html();
+	var options="<option value='0'>Lexema</option>";
+	for (var i = 1; i >= length; i++) {
+		options= options+ getOption(array[i-1],i);
+	};
+	lexema.html(options);
 	/*comment */
 }
 
