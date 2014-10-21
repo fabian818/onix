@@ -28,4 +28,17 @@ $(document).ready(function()
   			};
   		};   		
 	});
+
+  	$('#areatexto').keyup(function(){
+  		valor = $('#areatexto').val();
+  		resultado = $('#mensaje');
+
+  		if(isSimboloIdentificador(valor)){
+  			resultado.html('Es simbolo identificador');
+  		}else{
+  			resultado.html('No es simbolo identificador');
+  		}
+
+  	});
+
 });

@@ -14,7 +14,7 @@ function relationLists(list1,list2){
 }
 
 function getArrayFromText (string) {
-	var ExReg=new RegExp(/\s/);
+	var ExReg = new RegExp(/\s/);
     var array = string.split(ExReg);
     var validateArray = new Array;
 	for (var i = 0; i < array.length; i++) {
@@ -84,8 +84,6 @@ function getReservedWord(key){
 		'double':'td',
 		'date':'td',
 		'datetime':'td'
-
-
 	};
 	return array[key];
 }
@@ -126,3 +124,49 @@ function getElement(key){
 	return array[key];
 }
 
+//Funciones para determinar el tipo de caracter
+
+function isLetter(caracter){
+	var patron = /^[a-z-A-Z]+$/;
+
+	if (caracter.match(patron)) {
+		return true;
+	}else{
+		return false;
+	};
+
+}
+
+function isNumber(caracter){
+	var patron =/^[0-9]+$/;
+
+	if (caracter.match(patron)) {
+		return true;
+	}else{
+		return false;
+	};
+}
+
+function isWhite(caracter){
+
+	if (caracter==' '){
+		return true;
+	}else{
+		return false;
+	};
+}
+
+function isSimboloIdentificador(caracter){
+
+	var simbolos = ['_','$','ç','Ç','"'];
+	var result = true;
+	for (var i = 0; i<simbolos.length;i++) {
+		if (simbolos[i]==caracter){
+			result = true;
+			i = simbolos.length;
+		}else{
+			result = false;
+		}
+	};	
+	return result;
+}
