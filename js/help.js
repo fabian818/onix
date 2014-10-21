@@ -38,9 +38,9 @@ function getHash(string){
 }
 
 function getArrayFromText (string) {
-	changeSpace(string);
-	var array = string.split(' ');
-	var validateArray = new Array;
+	var ExReg=new RegExp(/\s/);
+    var array = string.split(ExReg);
+    var validateArray = new Array;
 	for (var i = 0; i < array.length; i++) {
 		if (array[i] != '') {
 			validateArray.push(array[i]);
