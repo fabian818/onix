@@ -21,6 +21,7 @@ function getArrayFromText (string) {
 		if (array[i] != '') {
 			validateArray.push(array[i]);
 		};
+
 	};
 	return validateArray;
 }
@@ -32,6 +33,7 @@ function setListFromArray (array) {
 	var options="<option value='0'>Lexema</option>";
 	for (var i = 1; i <= listLength; i++) {
 		options= options+ getOption(array[i-1],i);
+
 	};
 	lexema.html(options);
 	/*comment */
@@ -51,6 +53,7 @@ function setListFromArrayName (array) {
 function getOption (element, id) {
 	return "<option value='"+id+"'>"+element+"</option>"
 }
+
 
 //obtener palabras reservadas
 
