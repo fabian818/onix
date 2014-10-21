@@ -13,7 +13,32 @@ function relationLists(list1,list2){
 	);
 }
 
+function changeSpace (string) {
+	var hash = getHash(string);
+	alert(hash);
+}
+
+function getHash(string){
+	var elements = new Array();
+	for (var i = 0; i < string.length; i++) {
+		if (string[i] === '"') {
+			elements.push(i);
+		};
+	};
+	var hash = new Array();
+	for (var i = 0; i < elements.length; i++) {
+		if ((i+2)%2 === 0) {
+			hash["_"] = "p";
+		}
+		else{
+			hash["__"] = "i";
+		};
+	};
+	return hash;
+}
+
 function getArrayFromText (string) {
+	changeSpace(string);
 	var array = string.split(' ');
 	var validateArray = new Array;
 	for (var i = 0; i < array.length; i++) {
@@ -49,78 +74,3 @@ function setListFromArrayName (array) {
 function getOption (element, id) {
 	return "<option value='"+id+"'>"+element+"</option>"
 }
-
-//obtener palabras reservadas
-
-function isIdentificator(value){
-	return false;
-}
-
-function getReservedWord(key){
-	var array = {
-		'alias' : 'mo',
-		'break' : 'me',
-		//Operadores lógicos
-		'and' : 'ol',
-		'or':'ol',
-		'not':'ol',
-		'&&' : 'ol',
-		'||':'ol',
-
-		
-		//Operadores Aritmeticos
-		'+':'oa',
-		'-':'oa',
-		'*':'oa',
-		'/':'oa',
-		'>':'oa',
-		'<':'oa',
-        //Operadores modificador 
-        'int':'td',
-		'float':'td',
-		'decimal':'td',
-		'double':'td',
-		'date':'td',
-		'datetime':'td'
-
-
-	};
-	return array[key];
-}
-
-function getType(key){
-	var array = {
-		'ol' : 'operador lógico',
-		'oa' : 'operador aritmético',
-		'mo' : 'modificador',
-		'me' : 'método',
-		'td' : 'tipo de dato'
-	};
-	return array[key];
-}
-
-//Obtener elementos léxicos
-//
-
-function getElement(key){
-	var array = {
-		'=' : 'igual',
-		'"' : 'comilla doble',
-		"'" : 'comilla simple',
-		'.' : 'punto',
-		',' : 'coma',
-		';' : 'punto y coma',
-		':' : 'dos punto',
-		'[' : 'abrir corchete',
-		']' : 'cerrar corchete',
-		'{' : 'abrir llave',
-		'}' : 'cerrar llave',
-		'(' : 'abrir parentesis',
-		')' : 'cerrar paretensis',
-		'-' : 'guion',
-		'_' : 'guion abajo'
-
-	};
-	return array[key];
-}
-
