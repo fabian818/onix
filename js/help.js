@@ -13,6 +13,30 @@ function relationLists(list1,list2){
 	);
 }
 
+function changeSpace (string) {
+	var hash = getHash(string);
+	alert(hash);
+}
+
+function getHash(string){
+	var elements = new Array();
+	for (var i = 0; i < string.length; i++) {
+		if (string[i] === '"') {
+			elements.push(i);
+		};
+	};
+	var hash = new Array();
+	for (var i = 0; i < elements.length; i++) {
+		if ((i+2)%2 === 0) {
+			hash["_"] = "p";
+		}
+		else{
+			hash["__"] = "i";
+		};
+	};
+	return hash;
+}
+
 function getArrayFromText (string) {
 	var ExReg = new RegExp(/\s/);
     var array = string.split(ExReg);
@@ -31,10 +55,9 @@ function setListFromArray (array) {
 	lexema.attr("size", listLength+1);
 	var options="<option value='0'>Lexema</option>";
 	for (var i = 1; i <= listLength; i++) {
-		options= options+ getOption(array[i-1],i);
+		options = options + getOption(array[i-1],i);
 	};
 	lexema.html(options);
-	/*comment */
 }
 function setListFromArrayName (array) {
 	var listLength = array.length
@@ -52,77 +75,6 @@ function getOption (element, id) {
 	return "<option value='"+id+"'>"+element+"</option>"
 }
 
-//obtener palabras reservadas
-
-function isIdentificator(value){
-	return false;
-}
-
-function getReservedWord(key){
-	var array = {
-		'alias' : 'mo',
-		'break' : 'me',
-		//Operadores lógicos
-		'and' : 'ol',
-		'or':'ol',
-		'not':'ol',
-		'&&' : 'ol',
-		'||':'ol',
-
-		
-		//Operadores Aritmeticos
-		'+':'oa',
-		'-':'oa',
-		'*':'oa',
-		'/':'oa',
-		'>':'oa',
-		'<':'oa',
-        //Operadores modificador 
-        'int':'td',
-		'float':'td',
-		'decimal':'td',
-		'double':'td',
-		'date':'td',
-		'datetime':'td'
-	};
-	return array[key];
-}
-
-function getType(key){
-	var array = {
-		'ol' : 'operador lógico',
-		'oa' : 'operador aritmético',
-		'mo' : 'modificador',
-		'me' : 'método',
-		'td' : 'tipo de dato'
-	};
-	return array[key];
-}
-
-//Obtener elementos léxicos
-//
-
-function getElement(key){
-	var array = {
-		'=' : 'igual',
-		'"' : 'comilla doble',
-		"'" : 'comilla simple',
-		'.' : 'punto',
-		',' : 'coma',
-		';' : 'punto y coma',
-		':' : 'dos punto',
-		'[' : 'abrir corchete',
-		']' : 'cerrar corchete',
-		'{' : 'abrir llave',
-		'}' : 'cerrar llave',
-		'(' : 'abrir parentesis',
-		')' : 'cerrar paretensis',
-		'-' : 'guion',
-		'_' : 'guion abajo'
-
-	};
-	return array[key];
-}
 
 //Funciones para determinar el tipo de caracter
 
@@ -156,9 +108,9 @@ function isWhite(caracter){
 	};
 }
 
-function isSimboloIdentificador(caracter){
+function SimboloIdentificador(caracter){
 
-	var simbolos = ['_','$','ç','Ç','"'];
+	var simbolos = ['_','$','ç','Ç','"',' '];
 	var result = true;
 	for (var i = 0; i<simbolos.length;i++) {
 		if (simbolos[i]==caracter){
@@ -169,4 +121,45 @@ function isSimboloIdentificador(caracter){
 		}
 	};	
 	return result;
+}
+function SimboloNoIdentificador(caracter){
+
+	var simbolos = ['_','$','ç','Ç'];
+	var result = true;
+	for (var i = 0; i<simbolos.length;i++) {
+		if (simbolos[i]==caracter){
+			result = true;
+			i = simbolos.length;
+		}else{
+			result = false;
+		}
+	};	
+	return result;
+}
+
+function isComilla(caracter){
+	if (caracter=='\"') {
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function Automata(cadena){
+	var tabla = new Array();
+
+	var fila = 0, columna, estado=0;
+
+	tabla[0][0]=1; tabla[0][1]=3;tabla[0][2]=5;tabla[0][3]=6;tabla[0][4]=4;tabla[0][5]=0;
+	tabla[0][0]=2; tabla[0][1]=1;tabla[0][2]=1;tabla[0][3]=1;tabla[0][4]=1;tabla[0][5]=1;
+	tabla[0][0]=7; tabla[0][1]=7;tabla[0][2]=7;tabla[0][3]=7;tabla[0][4]=7;tabla[0][5]=2;
+	tabla[0][0]=7; tabla[0][1]=3;tabla[0][2]=3;tabla[0][3]=7;tabla[0][4]=3;tabla[0][5]=7;
+	tabla[0][0]=7; tabla[0][1]=7;tabla[0][2]=7;tabla[0][3]=7;tabla[0][4]=7;tabla[0][5]=4;
+	tabla[0][0]=7; tabla[0][1]=7;tabla[0][2]=5;tabla[0][3]=7;tabla[0][4]=7;tabla[0][5]=7;
+	tabla[0][0]=7; tabla[0][1]=7;tabla[0][2]=7;tabla[0][3]=7;tabla[0][4]=7;tabla[0][5]=6;
+
+	for(var i=0; i<cadena.length;i++){
+
+	}
+
 }
