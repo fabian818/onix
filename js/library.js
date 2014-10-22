@@ -15,7 +15,6 @@ function getReservedWord(key){
 		'not':'ol',
 		'&&' : 'ol',
 		'||':'ol',
-
 		
 		//Operadores Aritmeticos
 		'+':'oa',
@@ -59,15 +58,14 @@ function getElement(key){
 		'.' : 'punto',
 		',' : 'coma',
 		';' : 'punto y coma',
-		':' : 'dos punto',
+		':' : 'dos puntos',
 		'[' : 'abrir corchete',
 		']' : 'cerrar corchete',
 		'{' : 'abrir llave',
 		'}' : 'cerrar llave',
 		'(' : 'abrir parentesis',
 		')' : 'cerrar paretensis',
-		'-' : 'guion',
-		'_' : 'guion abajo'
+		'_' : 'guion bajo'
 
 	};
 	return array[key];
