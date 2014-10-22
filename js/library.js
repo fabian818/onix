@@ -30,8 +30,6 @@ function getReservedWord(key){
 		'double':'td',
 		'date':'td',
 		'datetime':'td'
-
-
 	};
 	return array[key];
 }
@@ -66,7 +64,6 @@ function getElement(key){
 		'(' : 'abrir parentesis',
 		')' : 'cerrar paretensis',
 		'_' : 'guion bajo'
-
 	};
 	return array[key];
 }
