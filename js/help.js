@@ -1,18 +1,3 @@
-function relationLists(list1,list2){
-	$(list1).click(
-		function(){
-			text = $(this).val();
-			$(list2).val(text);
-		}
-	);
-	$(list2).click(
-		function(){
-			text = $(this).val();
-			$(list1).val(text);
-		}
-	);
-}
-
 function evalueString (myString) {
 	var flag = false;
 	var array = new Array();
@@ -67,30 +52,6 @@ function normalForm (array) {
 }
 
 
-function getArrayFromText (string) {
-	var ExReg = new RegExp(/\s/);
-
-    var array = normalForm(evalueString(string).split(ExReg));
-    var validateArray = new Array;
-	for (var i = 0; i < array.length; i++) {
-		if (array[i] != '') {
-			validateArray.push(array[i]);
-		};
-
-	};
-	return validateArray;
-}
-/*Selecionar Listas*/
-function setListFromArray (array) {
-	var listLength = array.length
-	lexema = $("#lexema");
-	lexema.attr("size", listLength+1);
-	var options="<option value='0'>Lexema</option>";
-	for (var i = 1; i <= listLength; i++) {
-		options = options + getOption(array[i-1],i);
-	};
-	lexema.html(options);
-}
 function setListFromArrayName (array) {
 	var listLength = array.length
 	nombre = $("#nombre");
@@ -194,6 +155,7 @@ function Automata(cadena){
 		[1,0] : 2
 	};
 	*/
+	/*
 	tabla[0][0]=1; tabla[0][1]=3;tabla[0][2]=5;tabla[0][3]=6;tabla[0][4]=4;tabla[0][5]=0;
 	tabla[1][0]=2; tabla[1][1]=1;tabla[1][2]=1;tabla[1][3]=1;tabla[1][4]=1;tabla[1][5]=1;
 	tabla[2][0]=7; tabla[2][1]=7;tabla[2][2]=7;tabla[2][3]=7;tabla[2][4]=7;tabla[2][5]=2;
@@ -207,7 +169,7 @@ function Automata(cadena){
 			columna=0;
 		}else if (isLetter(cadena.charAt(i))) {
 			columna=1;
-		}else if (isNumber(cadena.charAt(i)) {
+		}else if (isNumber(cadena.charAt(i))) {
 			columna=2;
 		}else if (SimboloIdentificador(cadena.charAt(i))) {
 			columna=3;
@@ -224,23 +186,24 @@ function Automata(cadena){
 		}
 		if (i==cadena.length-1) {
 			switch(estado){
-				2:alert('Es una cadena');
+				case 2 : alert('Es una cadena');
 				  break;
-				3:
+				case 3 :
 				if (getReservedWord(cadena)) {
 					alert('Es palabra reservada');
 				}else{
 					alert('Es un identificador');
 				}
-				4:alert('Es un simbolo no identificador');
+				case 4 :alert('Es un simbolo no identificador');
 				  break;
-				5: alert('Es un numero');
+				case 5 : alert('Es un numero');
 				break;
-				6: alert('Es un símbolo identificador');
+				case 6 : alert('Es un símbolo identificador');
 				break;
 			}
 		}
 	}
+	*/
 
 }
 
