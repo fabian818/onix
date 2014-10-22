@@ -33,7 +33,7 @@ $(document).ready(function()
   		valor = $('#areatexto').val();
   		resultado = $('#mensaje');
 
-  		if(isSimboloIdentificador(valor)){
+  		if(Automata(valor)){
   			resultado.html('Es simbolo identificador');
   		}else{
   			resultado.html('No es simbolo identificador');

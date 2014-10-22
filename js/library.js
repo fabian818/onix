@@ -15,7 +15,6 @@ function getReservedWord(key){
 		'not':'ol',
 		'&&' : 'ol',
 		'||':'ol',
-
 		
 		//Operadores Aritmeticos
 		'+':'oa',
