@@ -10,6 +10,7 @@ function getReservedWord(key){
 		'alias' : 'mo',
 		'break' : 'me',
 		'case':'mo',
+		'def' : 'mo',
 		'class':'mo',
 		'do':'mo',
 		'else':'mo',
@@ -33,6 +34,36 @@ function getReservedWord(key){
 		'self':'mo',
 		'super':'mo',
 		'then':'mo',
+		'undef':'mo',
+		'unless':'mo',
+		'until':'mo',
+		'when':'mo',
+		'while':'mo',
+		'yield':'mo',
+		'_FILE':'mo',
+		'_LINE_':'mo',
+		'public':'mo',
+		'private':'mo',
+		'protected':'mo',
+		'begin':'mo',
+		'try':'mo',
+		'catch':'mo',		
+		'finally':'mo',
+		'raiz':'mo',
+		'power':'mo',
+		/*'sin':'mo',
+		'cos':'mo',
+		'tan':'mo',
+		'cotan':'mo'
+		'sec':'mo',
+		'cosec':'mo',
+		'arcsin':'mo',
+		'arccos':'mo',
+		'arctan':'mo'
+		'arccot':'mo',
+		'arcsec':'mo'
+		'arccosec':'mo',
+		*/
 		//Operadores lógicos
 		'and' : 'ol',
 		'or':'ol',
@@ -41,20 +72,18 @@ function getReservedWord(key){
 		'||':'ol',
 
 		//Operadores Aritmeticos
-		'+':'oa',
-		'-':'oa',
-		'*':'oa',
-		'/':'oa',
-		'>':'oa',
-		'<':'oa',
-        //Operadores modificador 
+		
+        //Operadores modificador
+        'string':'td', 
         'int':'td',
+        'char':'td',
 		'float':'td',
 		'decimal':'td',
 		'double':'td',
 		'date':'td',
-		'datetime':'td'
-
+		'datetime':'td',
+		'byte':'td',
+		'boolean':'td',
 
 	};
 	return array[key];
@@ -77,7 +106,6 @@ function getType(key){
 function getElement(key){
 	var array = {
 		'=' : 'igual',
-		'"' : 'comilla doble',
 		"'" : 'comilla simple',
 		'.' : 'punto',
 		',' : 'coma',
@@ -89,7 +117,43 @@ function getElement(key){
 		'}' : 'cerrar llave',
 		'(' : 'abrir parentesis',
 		')' : 'cerrar paretensis',
-		'_' : 'guion bajo'
+		'_' : 'guion bajo',
+		'+':'oa',
+		'-':'oa',
+		'*':'oa',
+		'/':'oa',
+		'>':'oa',
+		'<':'oa',
+
+		/*'/':'Operador division',
+		"\":'comentarios',*/
+		'@':'Arroba',
+
+		'?':'oa',
+		'!':'oa',
+		'%':'oa',
+		'&':'oa',
+		'|':'oa',
+		'#':'oa',
+
+		':':'oa',
+		'^':'oa',
+		'ç':'oa',
+		'==':'oa',
+		'*=':'oa',
+		'/=':'oa',
+		'-=':'oa',
+		'+=':'oa',
+		'!!':'oa',
+		'>>':'oa',
+		'<<':'oa',
+		'::*':'oa',
+		'@@':'oa',
+		'\n':'oa',
+		'\r':'oa',
+		
+
+
 
 	};
 	return array[key];
